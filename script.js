@@ -9,3 +9,12 @@
 // function game that calls playRound function 5 times
 // keeps score and reports a winner or loser at the end
 // console.log() the winner
+
+function computerPlay(){
+    // return random computer pick
+
+    let picks = ['Rock', 'Paper', 'Scissors'];
+    let randomPick = picks[Math.floor(Math.random() * picks.length)];
+
+    return randomPick;
+}
