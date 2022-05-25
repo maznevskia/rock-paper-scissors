@@ -72,3 +72,37 @@ function playRound(playerSelection, computerSelection = computerPlay()){
         return 'Typo!';
     }
 }
+
+function game() {
+
+    let playerPoints = 0;
+    let computerPoints = 0;
+
+    let i = 0;
+
+    while ( i < 5 ) {
+        let output = playRound();
+        if ( output == 1 ) {
+            playerPoints++;
+        }
+
+        else if ( output == 2) {
+            computerPoints++;
+        }
+
+        else {
+            continue;
+        }
+
+        i++;
+    }
+
+    console.log(`Player: ${playerPoints} - Computer: ${computerPoints}`);
+    if ( playerPoints > computerPoints ) {
+        console.log( 'Player Wins!' );
+    }
+    
+    else {
+        console.log( 'Computer Wins!' );
+    }
+}
