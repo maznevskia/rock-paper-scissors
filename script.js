@@ -20,39 +20,47 @@ function computerPlay(){
 }
 
 function playRound(playerSelection, computerSelection = computerPlay()){
+    // game logic if player chooses Scissors
+    
     if ( playerSelection == 'Scissors' ) {
         if ( computerSelection == 'Rock' ) {
             console.log('You Lose! Rock beats Scissors');
             return 2;
         }
-
+        
         else if ( computerSelection == 'Paper' ) {
             console.log('You Win! Scissors beats Paper');
             return 1;
         }
-
+        
         else{
+            console.log( 'Tie!' );
             return 0;
         }
     }
-
+    
     else if ( playerSelection == 'Paper' ) {
+        // game logic if player chooses Paper
+        
         if ( computerSelection == 'Rock' ) {
             console.log('You Win! Rock beats Paper');
             return 1;
         }
-
+        
         else if ( computerSelection == 'Scissors' ) {
             console.log('You Lose! Scissors beats Paper');
             return 2;
         }
-
+        
         else {
+            console.log( 'Tie!' );
             return 0;
         }
     }
-
+    
     else if ( playerSelection == 'Rock' ) {
+        // game logic if player chooses Rock
+
         if ( computerSelection == 'Scissors' ) {
             console.log('You Win! Rock beats Scissors');
             return 1;
@@ -64,12 +72,15 @@ function playRound(playerSelection, computerSelection = computerPlay()){
         }
 
         else {
+            console.log( 'Tie!' );
             return 0;
         }
     }
 
+    // if players input is invalid
+
     else {
-        return 'Typo!';
+        console.log( 'Typo!' );
     }
 }
 
@@ -94,6 +105,7 @@ function game() {
         }
 
         else {
+
             continue;
         }
 
@@ -109,3 +121,5 @@ function game() {
         console.log( 'Computer Wins!' );
     }
 }
+
+console.log(game());
