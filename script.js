@@ -4,7 +4,7 @@
 // takes 2 parameters playerSelection and computerSelection
 // returns a string that declares the winner of the round 
 // ex. 'You lose! Paper beats Rock'
-// make playerSelection case-sensitive
+// make playerSelection case-insensitive
 
 // function game that calls playRound function 5 times
 // keeps score and reports a winner or loser at the end
@@ -81,7 +81,10 @@ function game() {
     let i = 0;
 
     while ( i < 5 ) {
-        let output = playRound();
+        playerPlay = prompt('Rock Paper Scissors')
+        playerPlay = playerPlay.charAt(0).toUpperCase() + playerPlay.slice(1);
+
+        let output = playRound(playerPlay);
         if ( output == 1 ) {
             playerPoints++;
         }
