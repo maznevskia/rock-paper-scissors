@@ -84,58 +84,55 @@ function playRound(playerSelection, computerSelection = computerPlay()){
     }
 }
 
+const btnPlay = (choice) => {
+    const result = playRound(choice);
+    if ( result == 1 ) score1++;
+    else if ( result == 2 ) score2++;
+    p.innerText = `Player: ${score1} - Computer: ${score2}`;
+    div.append(p);
+    if ( score1 == 5 ) {
+        p.innerText = `Player Won!`
+        score1 = 0;
+        score2 = 0;
+        div.append(p);
+    }
+
+    else if ( score2 == 5 ) {
+        p.innerText = `Computer Won!`
+        score1 = 0;
+        score2 = 0;
+        div.append(p);
+    }
+
+    
+};
+
 const btnRock = document.querySelector('#rock');
 const btnPaper = document.querySelector('#paper');
 const btnScissors = document.querySelector('#scissors');
 
+let score1 = 0, score2 = 0;
+
 btnRock.addEventListener('click', () => {
-    playRound('Rock');
+    btnPlay('Rock');
 });
 
 btnPaper.addEventListener('click', () => {
-    playRound('Paper');
+    btnPlay('Paper');
 });
 
 btnScissors.addEventListener('click', () => {
-    playRound('Scissors');
+    btnPlay('Scissors');
 });
 
-// function game() {
+const div = document.querySelector('div');
 
-//     let playerPoints = 0;
-//     let computerPoints = 0;
+const p = document.createElement('p');
 
-//     let i = 0;
+// click of button starts play round
 
-//     while ( i < 5 ) {
-//         playerPlay = prompt('Rock Paper Scissors')
-//         playerPlay = playerPlay.charAt(0).toUpperCase() + playerPlay.slice(1);
+// in play round we change the result which will be displayed on screen
 
-//         let output = playRound(playerPlay);
-//         if ( output == 1 ) {
-//             playerPoints++;
-//         }
+// in the event listener function we will change the 
 
-//         else if ( output == 2) {
-//             computerPoints++;
-//         }
-
-//         else {
-
-//             continue;
-//         }
-
-//         i++;
-//     }
-
-//     console.log(`Player: ${playerPoints} - Computer: ${computerPoints}`);
-//     if ( playerPoints > computerPoints ) {
-//         console.log( 'Player Wins!' );
-//     }
-    
-//     else {
-//         console.log( 'Computer Wins!' );
-//     }
-// }
-
-// console.log(game());
+// lastly the score will be updated
