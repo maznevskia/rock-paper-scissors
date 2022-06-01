@@ -84,42 +84,58 @@ function playRound(playerSelection, computerSelection = computerPlay()){
     }
 }
 
-function game() {
+const btnRock = document.querySelector('#rock');
+const btnPaper = document.querySelector('#paper');
+const btnScissors = document.querySelector('#scissors');
 
-    let playerPoints = 0;
-    let computerPoints = 0;
+btnRock.addEventListener('click', () => {
+    playRound('Rock');
+});
 
-    let i = 0;
+btnPaper.addEventListener('click', () => {
+    playRound('Paper');
+});
 
-    while ( i < 5 ) {
-        playerPlay = prompt('Rock Paper Scissors')
-        playerPlay = playerPlay.charAt(0).toUpperCase() + playerPlay.slice(1);
+btnScissors.addEventListener('click', () => {
+    playRound('Scissors');
+});
 
-        let output = playRound(playerPlay);
-        if ( output == 1 ) {
-            playerPoints++;
-        }
+// function game() {
 
-        else if ( output == 2) {
-            computerPoints++;
-        }
+//     let playerPoints = 0;
+//     let computerPoints = 0;
 
-        else {
+//     let i = 0;
 
-            continue;
-        }
+//     while ( i < 5 ) {
+//         playerPlay = prompt('Rock Paper Scissors')
+//         playerPlay = playerPlay.charAt(0).toUpperCase() + playerPlay.slice(1);
 
-        i++;
-    }
+//         let output = playRound(playerPlay);
+//         if ( output == 1 ) {
+//             playerPoints++;
+//         }
 
-    console.log(`Player: ${playerPoints} - Computer: ${computerPoints}`);
-    if ( playerPoints > computerPoints ) {
-        console.log( 'Player Wins!' );
-    }
+//         else if ( output == 2) {
+//             computerPoints++;
+//         }
+
+//         else {
+
+//             continue;
+//         }
+
+//         i++;
+//     }
+
+//     console.log(`Player: ${playerPoints} - Computer: ${computerPoints}`);
+//     if ( playerPoints > computerPoints ) {
+//         console.log( 'Player Wins!' );
+//     }
     
-    else {
-        console.log( 'Computer Wins!' );
-    }
-}
+//     else {
+//         console.log( 'Computer Wins!' );
+//     }
+// }
 
-console.log(game());
+// console.log(game());
